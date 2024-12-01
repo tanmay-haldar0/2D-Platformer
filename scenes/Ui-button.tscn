@@ -7,29 +7,56 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(123, 376)
-scale = Vector2(0.340984, 0.35082)
-texture_normal = ExtResource("2_8ilfm")
-action = "right"
+[node name="QuitHBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -181.0
+offset_bottom = 181.0
+grow_horizontal = 0
 
-[node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(120, 485)
-rotation = -3.14159
-scale = Vector2(0.340984, 0.35082)
-texture_normal = ExtResource("2_8ilfm")
-action = "left"
-
-[node name="jump" type="TouchScreenButton" parent="."]
-position = Vector2(683, 354)
-scale = Vector2(0.263492, 0.390476)
-texture_normal = ExtResource("1_nm6kv")
-action = "jump"
-
-[node name="quit" type="TouchScreenButton" parent="."]
-position = Vector2(693, 3)
-scale = Vector2(0.214286, 0.237013)
+[node name="quit" type="TouchScreenButton" parent="QuitHBoxContainer"]
+position = Vector2(4, 3)
+scale = Vector2(0.514, 0.569)
 texture_normal = ExtResource("3_rt465")
 script = ExtResource("4_dq30m")
 
-[connection signal="pressed" from="quit" to="quit" method="_on_pressed"]
+[node name="JumpHBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -221.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="jump" type="TouchScreenButton" parent="JumpHBoxContainer2"]
+position = Vector2(-1, -5.00002)
+scale = Vector2(0.563, 0.682619)
+texture_normal = ExtResource("1_nm6kv")
+action = "jump"
+
+[node name="leftRightHBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -226.0
+offset_right = 479.0
+grow_vertical = 0
+
+[node name="right" type="TouchScreenButton" parent="leftRightHBoxContainer"]
+position = Vector2(256.005, 6)
+scale = Vector2(0.541, 0.557)
+texture_normal = ExtResource("2_8ilfm")
+action = "right"
+
+[node name="left" type="TouchScreenButton" parent="leftRightHBoxContainer"]
+position = Vector2(217.005, 181)
+rotation = -3.14159
+scale = Vector2(0.541, 0.557)
+texture_normal = ExtResource("2_8ilfm")
+action = "left"
+
+[connection signal="pressed" from="QuitHBoxContainer/quit" to="QuitHBoxContainer/quit" method="_on_pressed"]

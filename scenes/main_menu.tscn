@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0jceaymvshi7"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_vwrko"]
+[ext_resource type="Texture2D" uid="uid://crnqmyx8w6sb2" path="res://assets/sprites/gameuiBack.png" id="2_7aem4"]
+[ext_resource type="Texture2D" uid="uid://x06bcecg7kdc" path="res://assets/sprites/gameLogo.png" id="3_6jrrg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vq2lk"]
+texture = ExtResource("2_7aem4")
+modulate_color = Color(0.481789, 0.481789, 0.481789, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icv46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46vle"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="main menu" type="Node2D"]
+script = ExtResource("1_vwrko")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vq2lk")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -794.0
+offset_top = 71.0
+offset_right = 794.0
+offset_bottom = 384.0
+grow_horizontal = 2
+texture = ExtResource("3_6jrrg")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -121.0
+offset_right = 318.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Start" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_icv46")
+theme_override_styles/hover = SubResource("StyleBoxFlat_46vle")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46vle")
+theme_override_styles/normal = SubResource("StyleBoxFlat_46vle")
+text = "Start Game"
+autowrap_mode = 3
+
+[node name="Options" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_icv46")
+theme_override_styles/hover = SubResource("StyleBoxFlat_46vle")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46vle")
+theme_override_styles/normal = SubResource("StyleBoxFlat_46vle")
+text = "Options"
+autowrap_mode = 3
+
+[node name="Exit" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_icv46")
+theme_override_styles/hover = SubResource("StyleBoxFlat_46vle")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46vle")
+theme_override_styles/normal = SubResource("StyleBoxFlat_46vle")
+text = "Exit"
+autowrap_mode = 3
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

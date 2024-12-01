@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Platformm runner 2d"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(1, 0.781743, 0.950111, 1)
 boot_splash/fullsize=false
@@ -24,8 +24,10 @@ AudioStreamPlayer2d="*res://scenes/audio_stream_player_2d.tscn"
 
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=480
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
@@ -51,9 +53,9 @@ left={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
